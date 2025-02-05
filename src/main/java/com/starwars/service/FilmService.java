@@ -47,6 +47,7 @@ public class FilmService {
             String url = SWAPI_URL + "films/";
             ResponseEntity<SWAPIResponse<Film>> filmResponse;
             do {
+
                 filmResponse = restTemplate.exchange(
                         url, HttpMethod.GET, null,
                         new ParameterizedTypeReference<SWAPIResponse<Film>>() {}
