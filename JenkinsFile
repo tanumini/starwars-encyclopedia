@@ -5,6 +5,18 @@ pipeline {
         DOCKER_IMAGE_FRONTEND = 'starwars-frontend'
     }
     stages {
+    stage('Checkout Backend') {
+                steps {
+                    git url: 'https://github.com/tanumini/starwars-encyclopedia.git', branch: 'main'
+                }
+            }
+
+            // Stage to checkout the Frontend repository
+            stage('Checkout Frontend') {
+                steps {
+                    git url: 'https://github.com/tanumini/starwars-encyclopedia-UI.git', branch: 'Master'
+                }
+            }
         stage('Checkout Code') {
             steps {
                 checkout scm
