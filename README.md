@@ -51,7 +51,7 @@ This is a full-stack microservice-based system for retrieving Star Wars informat
 
 1. **Clone the Repository**:
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/tanumini/starwars-encyclopedia.git
    cd <project_directory>
    ```
 
