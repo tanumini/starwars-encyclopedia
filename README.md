@@ -78,3 +78,19 @@ This is a full-stack microservice-based system for retrieving Star Wars informat
    ```
 ## Sequence diagram
 ![Sequence Diagram](SequenceDiagram.png)
+
+## Design Patterns Used in the Project
+1. **Creational Design Patterns** :
+•	Singleton:
+◦	Explanation: The Singleton pattern ensures that a class has only one instance and provides a global access point to that instance.
+◦	How it's used in this project: The RestTemplate is implemented as a Singleton by Spring's @Configuration and @Bean annotations, which manage its lifecycle and ensure that only one instance of RestTemplate is created and used throughout the application.  
+
+2. **Behavioral Design Patterns** :
+•	Observer:
+◦	Explanation: The Observer pattern defines a one-to-many relationship where one object (the subject) notifies its dependent objects (observers) about changes in its state. This pattern is useful when you need to update multiple parts of the system based on a single change.
+◦	How it's used in this project: In my project, the @Scheduled annotation in the Service class acts like an Observer. It triggers the method fetchAndStoreData() to run periodically (every 24 hours) and fetch the vehicle data from the SWAPI API. When the scheduled time arrives, the method is executed automatically, thus acting as an observer to check for new data at regular intervals.  
+
+3. **Structural Design Patterns** :
+•	Facade:
+◦	Explanation: The Facade pattern provides a simplified interface to a complex subsystem, hiding its complexity and offering a higher-level interface that is easier to use.
+◦	How it's used in this project: The service class in my project acts as a Facade. It provides a simple and unified interface for fetching and storing vehicle data, hiding the complexities of interacting with the SWAPI API and the database. The client only needs to interact with the service methods, without worrying about the underlying operations.
