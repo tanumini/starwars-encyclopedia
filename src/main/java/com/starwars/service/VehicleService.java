@@ -1,7 +1,5 @@
 package com.starwars.service;
 
-
-import com.starwars.model.Planet;
 import com.starwars.model.SWAPIResponse;
 import com.starwars.model.Vehicle;
 import com.starwars.repository.VehicleRepository;
@@ -16,7 +14,6 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
@@ -83,7 +80,7 @@ public class VehicleService {
 
     @PostConstruct
     public void init() {
-        if (vehicleRepository.count() == 0) {  // Fetch only if DB is empty
+        if (vehicleRepository.count() == 0) {
             System.out.println("Initializing database with SWAPI data...");
             fetchAndStoreData();
         } else {

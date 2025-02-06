@@ -1,7 +1,6 @@
 package com.starwars.service;
 
 import com.starwars.model.Person;
-import com.starwars.model.Planet;
 import com.starwars.model.SWAPIResponse;
 import com.starwars.repository.PeopleRepository;
 import jakarta.annotation.PostConstruct;
@@ -79,48 +78,11 @@ public class PeopleService {
 
         return CompletableFuture.completedFuture(null);
     }
-//
-//    @Scheduled(fixedRate = 86400000)
-//    public void fetchAndStoreData() {
-//        if (offlineModeEnabled) return;
-//        try {
-//            String url = SWAPI_URL + "people/";
-//            ResponseEntity<SWAPIResponse<Person>> peopleResponse;
-//            do {
-//                peopleResponse = restTemplate.exchange(
-//                        url, HttpMethod.GET, null,
-//                        new ParameterizedTypeReference<SWAPIResponse<Person>>() {
-//                        }
-//                );
-//                if (peopleResponse.getBody() != null && peopleResponse.getBody().getResults() != null) {
-//                    List<Person> people = peopleResponse.getBody().getResults();
-//                    if (people.isEmpty()) {
-//                        System.out.println("No people found in the SWAPI response.");
-//
-//                    } else {
-//                        for (Person person : people) {
-//                            if (person.getName() != null) {
-//                                person.setName(person.getName().trim().toLowerCase());
-//                            }
-//                        }
-//                        peopleRepository.saveAll(people);
-//                        System.out.println(people.size() + " people updated successfully.");
-//                    }
-//                } else {
-//                    System.err.println("Invalid response from SWAPI.");
-//                }
-//                url = peopleResponse.getBody().getNext();
-//            }
-//            while( url != null);
-//        } catch (Exception e) {
-//            System.err.println("Error fetching people: " + e.getMessage());
-//        }
-//    }
 
 
     @PostConstruct
     public void init() {
-        if (peopleRepository.count() == 0) {  // Fetch only if DB is empty
+        if (peopleRepository.count() == 0) {
             System.out.println("Initializing database with SWAPI data...");
             fetchAndStoreData();
         } else {

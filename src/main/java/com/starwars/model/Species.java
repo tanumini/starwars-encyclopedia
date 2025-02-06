@@ -20,19 +20,18 @@ public class Species {
     private String skinColors;
     private String language;
 
-    private String homeworld; // Storing the homeworld as a URL instead of a Planet entity
+    private String homeworld;
 
     @ElementCollection
-    private List<String> people; // List of URLs for related people
+    private List<String> people;
 
     @ElementCollection
-    private List<String> films; // List of URLs for related films
-
+    private List<String> films;
     private String created;
     private String edited;
-    private String url; // API reference URL for this species
+    private String url;
 
-    // Getters and Setters
+
     public Long getId() {
         return id;
     }

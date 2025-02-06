@@ -1,13 +1,11 @@
 package com.starwars.service;
 
-
 import com.starwars.model.Planet;
 import com.starwars.model.SWAPIResponse;
 import com.starwars.repository.PlanetRepository;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
@@ -37,7 +35,7 @@ public class PlanetService {
     private String SWAPI_URL;
 
     @Async
-    @Scheduled(fixedRate = 86400000)  // Scheduling it periodically to fetch data
+    @Scheduled(fixedRate = 86400000)
     public CompletableFuture<Void> fetchAndStoreData() {
         if (offlineModeEnabled) return CompletableFuture.completedFuture(null);
 
@@ -79,14 +77,13 @@ public class PlanetService {
 
     @PostConstruct
     public void init() {
-        if (planetRepository.count() == 0) {  // Fetch only if DB is empty
+        if (planetRepository.count() == 0) {
             System.out.println("Initializing database with SWAPI data...");
             fetchAndStoreData();
         } else {
             System.out.println("Database already contains data. Fetching data from H2 DB");
         }
     }
-   // @Cacheable(value = "planetCache", key = "#name")
     public ResponseEntity<Planet> getPlanetByName(String name) {
         if (name != null) {
             name = name.trim().toLowerCase();

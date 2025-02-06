@@ -2,7 +2,6 @@ package com.starwars.service;
 
 
 import com.starwars.model.Film;
-import com.starwars.model.Planet;
 import com.starwars.model.SWAPIResponse;
 import com.starwars.repository.FilmRepository;
 import jakarta.annotation.PostConstruct;
@@ -33,10 +32,10 @@ public class FilmService {
 
     @Value("${swapi.url}")
     private String SWAPI_URL;
-//    private static final String SWAPI_URL = "https://swapi.dev/api/";
+
 
     @Async
-    @Scheduled(fixedRate = 86400000) // Scheduling it periodically to fetch data
+    @Scheduled(fixedRate = 86400000)
     public CompletableFuture<Void> fetchAndStoreData() {
         if (offlineModeEnabled) {
             System.out.println("Offline mode enabled. Fetching from H2 database.");
@@ -83,7 +82,7 @@ public class FilmService {
 
     @PostConstruct
     public void init() {
-        if (filmRepository.count() == 0) {  // Fetch only if DB is empty
+        if (filmRepository.count() == 0) {
             System.out.println("Initializing database with SWAPI data...");
             fetchAndStoreData();
         } else {
@@ -101,7 +100,7 @@ public class FilmService {
         }
 
         if (films.size() == 1) {
-            return ResponseEntity.ok(films.get(0)); // Return a single film if only one exists
+            return ResponseEntity.ok(films.get(0));
         }
         return ResponseEntity.ok(films);
     }

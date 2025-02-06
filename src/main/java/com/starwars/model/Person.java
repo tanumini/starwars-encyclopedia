@@ -19,25 +19,25 @@ public class Person {
     private String mass;
     private String skinColor;
 
-    private String homeworld; // Storing the homeworld as a URL instead of a Planet entity
+    private String homeworld;
 
     @ElementCollection
-    private List<String> films; // List of Film URLs
+    private List<String> films;
 
     @ElementCollection
-    private List<String> species; // List of Species URLs
+    private List<String> species;
 
     @ElementCollection
-    private List<String> starships; // List of Starship URLs
+    private List<String> starships;
 
     @ElementCollection
-    private List<String> vehicles; // List of Vehicle URLs
+    private List<String> vehicles;
 
     private String created;
     private String edited;
-    private String url; // API reference URL for this person
+    private String url;
 
-    // Getters and Setters
+
     public Long getId() {
         return id;
     }

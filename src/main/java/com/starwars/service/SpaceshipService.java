@@ -1,7 +1,5 @@
 package com.starwars.service;
 
-
-import com.starwars.model.Planet;
 import com.starwars.model.SWAPIResponse;
 import com.starwars.model.Spaceship;
 import com.starwars.repository.SpaceshipRepository;
@@ -16,11 +14,9 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
-
 
 @Service
 public class SpaceshipService {
@@ -84,7 +80,7 @@ public class SpaceshipService {
 
     @PostConstruct
     public void init() {
-        if (spaceshipRepository.count() == 0) {  // Fetch only if DB is empty
+        if (spaceshipRepository.count() == 0) {
             System.out.println("Initializing database with SWAPI data...");
             fetchAndStoreData();
         } else {

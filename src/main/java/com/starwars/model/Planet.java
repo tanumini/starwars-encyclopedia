@@ -20,18 +20,18 @@ public class Planet {
     private String orbitalPeriod;
     private String rotationPeriod;
 
-    // Store URLs as strings
-    @ElementCollection
-    private List<String> films; // List of Film URLs
 
     @ElementCollection
-    private List<String> residents; // List of Resident (Person) URLs
+    private List<String> films;
+
+    @ElementCollection
+    private List<String> residents;
 
     private String created;
     private String edited;
-    private String url; // API reference URL for this planet
+    private String url;
 
-    // Getters and Setters
+
     public Long getId() {
         return id;
     }

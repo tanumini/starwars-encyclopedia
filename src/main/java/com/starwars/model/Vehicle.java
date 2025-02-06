@@ -22,16 +22,15 @@ public class Vehicle {
     private String passengers;
     private String vehicleClass;
 
-    // Store the URLs as strings
     @ElementCollection
-    private List<String> films;  // List of Film URLs
+    private List<String> films;
 
     @ElementCollection
-    private List<String> pilots; // List of Pilot URLs
+    private List<String> pilots;
 
-    private String url; // URL to the vehicle resource
+    private String url;
 
-    // Getters and setters
+
     public Long getId() {
         return id;
     }

@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Repository
 public interface FilmRepository extends JpaRepository<Film, Long> {
-//    Optional<Film> findByTitle(String title);
+
 @Query("SELECT DISTINCT f FROM Film f WHERE f.title = :title")
 List<Film> findDistinctByTitle(String title);
 

@@ -17,27 +17,26 @@ public class Film {
     private String openingCrawl;
     private int episodeId;
 
-    // Store URLs instead of entity relationships
-    @ElementCollection
-    private List<String> characters; // List of Character URLs
 
     @ElementCollection
-    private List<String> planets; // List of Planet URLs
+    private List<String> characters;
 
     @ElementCollection
-    private List<String> species; // List of Species URLs
+    private List<String> planets;
 
     @ElementCollection
-    private List<String> starships; // List of Starship URLs
+    private List<String> species;
 
     @ElementCollection
-    private List<String> vehicles; // List of Vehicle URLs
+    private List<String> starships;
+
+    @ElementCollection
+    private List<String> vehicles;
 
     private String created;
     private String edited;
-    private String url; // API reference URL for this film
+    private String url;
 
-    // Getters and Setters
     public Long getId() {
         return id;
     }

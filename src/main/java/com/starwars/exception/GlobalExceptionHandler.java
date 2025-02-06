@@ -16,8 +16,6 @@ public class GlobalExceptionHandler {
         Map<String, String> response = new HashMap<>();
         response.put("error", "Internal Server Error");
         response.put("message", ex.getMessage());
-
-        // Detect API failure
         if (ex.getMessage().contains("swapi.dev")) {
             response.put("message", "Star Wars API is currently unavailable. Please try again later.");
         }

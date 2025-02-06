@@ -24,16 +24,16 @@ public class Spaceship {
     private String passengers;
     private String starshipClass;
 
-    // Store the URLs as strings
-    @ElementCollection
-    private List<String> films;  // List of Film URLs
 
     @ElementCollection
-    private List<String> pilots; // List of Pilot URLs
+    private List<String> films;
 
-    private String url; // URL to the spaceship resource
+    @ElementCollection
+    private List<String> pilots;
 
-    // Getters and setters
+    private String url;
+
+
     public Long getId() {
         return id;
     }

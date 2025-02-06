@@ -4,7 +4,6 @@ package com.starwars.controller;
 import com.starwars.dto.GenericStarWarsResponse;
 import com.starwars.model.Film;
 import com.starwars.service.FilmService;
-import org.hibernate.annotations.Parameter;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

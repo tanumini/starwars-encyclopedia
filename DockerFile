@@ -1,3 +1,0 @@
-FROM openjdk:17-jdk-slim
-COPY target/starwars-info-retrieval.jar /app.jar
-ENTRYPOINT ["java", "-jar", "/app.jar"]
