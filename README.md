@@ -19,7 +19,7 @@ This is a full-stack microservice-based system for retrieving Star Wars informat
 - **Spring Boot**: The backend is built with Spring Boot to handle the business logic and API requests.
 - **Microservice Architecture**: The backend is designed in a microservice manner to ensure scalability and maintainability.
 - **H2 Database**: For simplicity and local storage, the H2 database is used to store vehicle data, which is populated via a scheduled task from the SWAPI API.
-- **Scheduled Task**: The vehicle data is fetched every 24 hours from the SWAPI API using an asynchronous scheduled task. If offline mode is enabled, the data fetch is skipped.
+- **Scheduled Task**: The data for all entities is fetched every 24 hours from the SWAPI API using an asynchronous scheduled task. If offline mode is enabled, the data fetch is skipped.
 - **Asynchronous Processing**: The `@Async` annotation is used to handle the fetching of data in an asynchronous manner, ensuring that it does not block the main thread of the application.
 - **Exception Handling**: Proper exception handling is in place to ensure errors during the data fetching process are logged appropriately.
 - **REST API**: The backend exposes REST endpoints that allow the frontend to query vehicle information by name.
@@ -29,7 +29,6 @@ This is a full-stack microservice-based system for retrieving Star Wars informat
 - **React.js**: The frontend is built using React.js for rendering dynamic UI components.
 - **Bootstrap**: Bootstrap is used for styling the frontend, providing a responsive and modern design.
 - **Search UI**: The UI includes a type dropdown, a name input field, a search button, and a results display.
-- **Offline Mode**: The frontend handles switching between online and offline modes, with offline data being displayed when the system is not connected.
 
 ### Data Flow
 
@@ -77,4 +76,5 @@ This is a full-stack microservice-based system for retrieving Star Wars informat
    ```bash
    docker-compose up --build
    ```
-
+## Sequence diagram
+![Sequence Diagram](SequenceDiagram.png)
